@@ -1,6 +1,5 @@
 (function(){
 
-
 	var github = function($http){
 
 		var getUser = function(username){
@@ -12,13 +11,18 @@
 		};
 
 		var getRepos = function(user){
-			return $http.get(user)
+			return $http.get(user.repos_url)
+						.then(function(response) {
+							return response.data;
+						});
 		};
 
 		return {
-
+			getUser: getUser;
+			getRepos: getRepos
 		};
 	};
 	var module = angular.module("gitHubViewer");
+	module.factory("github",github);
 
 }());
