@@ -23,10 +23,10 @@
 
 			return $http.get(repourl)
 				.then(function(response) {
-					repo = reponse.data;
+					repo = response.data;
 					return $http.get(repourl + "/collaborators" );
 				})
-				.then(function(reponse){
+				.then(function(response){
 					repo.collaborators = response.data;
 					return repo;
 				});

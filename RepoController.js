@@ -1,6 +1,6 @@
-(function(){
+var module = angular.module("gitHubViewer");
 
-	var module = angular.module(gitHubViewer);
+(function(){
 
 	var RepoController = function($scope, $routeParams, github) {
 
@@ -8,7 +8,7 @@
 			$scope.repo = data;
 		};
 
-		var on Error = function(reason) {
+		var onError = function(reason) {
 			$scope.error = reason;
 		};
 
